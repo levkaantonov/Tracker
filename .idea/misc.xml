@@ -13,10 +13,10 @@
         <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/drawable/ic_run.xml" value="0.23743589743589744" />
         <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/drawable/ic_settings.xml" value="0.23743589743589744" />
         <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/drawable/ic_stop_black_24dp.xml" value="0.23743589743589744" />
-        <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/layout/activity_main.xml" value="0.225" />
         <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/layout/fragment_run.xml" value="0.11041666666666666" />
-        <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/layout/fragment_settings.xml" value="0.11041666666666666" />
-        <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/layout/fragment_setup.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/layout/fragment_settings.xml" value="0.225" />
+        <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/layout/fragment_setup.xml" value="0.19907407407407407" />
         <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/layout/fragment_statistics.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/layout/fragment_tracking.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Wald/AndroidStudioProjects/tracker/app/src/main/res/layout/item_run.xml" value="0.2109375" />

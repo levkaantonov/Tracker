@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">tracker</string>
     <string name="warning_request_location_permissions">You need to accept location permissions to use this app.</string>
+    <string name="btnToggleRunTextStart">Start</string>
+    <string name="btnToggleRunTextStop">Stop</string>
     <string-array name="filter_options">
         <item>Date</item>
         <item>Running Time</item>
