@@ -6,8 +6,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import levkaantonov.com.study.tracker.R
@@ -31,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         navController = binding.navHostFragment.findNavController()
         navController?.let {
             binding.bottomNavigationView.setupWithNavController(it)
+            binding.bottomNavigationView.setOnItemReselectedListener { }
             it.addOnDestinationChangedListener { _, destination, _ ->
                 when (destination.id) {
                     R.id.settingsFragment, R.id.runFragment, R.id.statisticsFragment ->
@@ -54,4 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun setToolbarText(text: String) {
+        binding.tvToolbarTitle.text = text
+    }
 }
