@@ -4,10 +4,8 @@ import android.Manifest
 import android.content.Context
 import android.location.Location
 import android.os.Build
-import com.google.android.gms.maps.model.PolylineOptions
 import levkaantonov.com.study.tracker.services.Polyline
 import pub.devrel.easypermissions.EasyPermissions
-import java.text.SimpleDateFormat
 import java.util.concurrent.TimeUnit
 
 object TrackingUtility {
@@ -52,7 +50,7 @@ object TrackingUtility {
 
     fun calculatePolylineLength(polyline: Polyline): Float {
         var distance = 0f
-        for(i in 0..polyline.size - 2) {
+        for (i in 0..polyline.size - 2) {
             val pos1 = polyline[i]
             val pos2 = polyline[i + 1]
 
