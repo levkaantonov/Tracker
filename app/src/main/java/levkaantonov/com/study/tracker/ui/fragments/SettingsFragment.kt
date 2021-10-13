@@ -15,13 +15,13 @@ import levkaantonov.com.study.tracker.ui.MainActivity
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SettingsFragment : Fragment(R.layout.fragment_settings) {
+class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
     @Inject
-    private lateinit var sharedPrefs: SharedPreferences
+    lateinit var sharedPrefs: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,

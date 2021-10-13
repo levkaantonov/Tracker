@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import levkaantonov.com.study.tracker.R
@@ -26,7 +27,9 @@ class MainActivity : AppCompatActivity() {
         navigateToTrackingFragmentIfNeeded(intent)
 
         setSupportActionBar(binding.toolbar)
-        navController = binding.navHostFragment.findNavController()
+        val navHost =
+            supportFragmentManager.findFragmentById(binding.navHostFragment.id) as NavHostFragment
+        navController = navHost.findNavController()
         navController?.let {
             binding.bottomNavigationView.setupWithNavController(it)
             binding.bottomNavigationView.setOnItemReselectedListener { }

@@ -7,6 +7,7 @@ import android.os.Build
 import com.google.android.gms.maps.model.PolylineOptions
 import levkaantonov.com.study.tracker.services.Polyline
 import pub.devrel.easypermissions.EasyPermissions
+import java.text.SimpleDateFormat
 import java.util.concurrent.TimeUnit
 
 object TrackingUtility {
@@ -28,15 +29,11 @@ object TrackingUtility {
 
     fun getFormattedStopWatchTime(ms: Long, includeMillis: Boolean = false): String {
         var millis = ms
-
         val hours = TimeUnit.MILLISECONDS.toHours(millis)
         millis -= TimeUnit.HOURS.toMillis(hours)
-
         val minutes = TimeUnit.MILLISECONDS.toMinutes(millis)
         millis -= TimeUnit.MINUTES.toMillis(minutes)
-
-        val seconds = TimeUnit.MILLISECONDS.toMinutes(millis)
-        millis -= TimeUnit.SECONDS.toSeconds(minutes)
+        val seconds = TimeUnit.MILLISECONDS.toSeconds(millis)
 
         if (!includeMillis) {
             return "${if (hours < 10) "0" else ""}$hours:" +
@@ -53,13 +50,13 @@ object TrackingUtility {
                 "${if (millis < 10) "0" else ""}$millis"
     }
 
-    fun calcPolylineLength(polyline: Polyline): Float {
+    fun calculatePolylineLength(polyline: Polyline): Float {
         var distance = 0f
-        for (i in 0..polyline.size - 2) {
+        for(i in 0..polyline.size - 2) {
             val pos1 = polyline[i]
             val pos2 = polyline[i + 1]
 
-            var result = FloatArray(1)
+            val result = FloatArray(1)
             Location.distanceBetween(
                 pos1.latitude,
                 pos1.longitude,
@@ -67,7 +64,6 @@ object TrackingUtility {
                 pos2.longitude,
                 result
             )
-
             distance += result[0]
         }
         return distance

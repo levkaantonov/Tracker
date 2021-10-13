@@ -27,7 +27,7 @@ class SetupFragment : Fragment() {
     var isFirsAppOpen = true
 
     @Inject
-    private lateinit var sharedPrefs: SharedPreferences
+    lateinit var sharedPrefs: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,

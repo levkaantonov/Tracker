@@ -53,23 +53,24 @@ class StatisticsFragment : Fragment() {
             }
             viewModel.totalAvgSpeed.observe(viewLifecycleOwner) {
                 it?.let {
-                    val totalAvg = (it * 10f).roundToInt() / 10f
-                    val totalAvgStr = "${totalAvg}km/h"
-                    tvAverageSpeed.text = totalAvgStr
+                    val avgSpeed = round(it * 10f) / 10f
+
+                    val avgSpeedString = "${String.format("%.2f", avgSpeed)}km/h"
+                    tvAverageSpeed.text = avgSpeedString
                 }
             }
             viewModel.totalCaloriesBurned.observe(viewLifecycleOwner) {
                 it?.let {
-                    val totalCaloriesBurned = "${it}kcal"
-                    tvTotalCalories.text = totalCaloriesBurned
+                    val totalCalories = "${it}kcal"
+                    tvTotalCalories.text = totalCalories
                 }
             }
             viewModel.totalDistance.observe(viewLifecycleOwner) {
                 it?.let {
                     val km = it / 1000f
-                    val totalDistance = (km * 10f).roundToInt() / 10f
-                    val totalDistanceStr = "${totalDistance}km"
-                    tvTotalDistance.text = totalDistanceStr
+                    val totalDistance = round(km * 10f) / 10f
+                    val totalDistanceString = "${String.format("%.2f", totalDistance)}km"
+                    tvTotalDistance.text = totalDistanceString
                 }
             }
             viewModel.runSortedByDate.observe(viewLifecycleOwner) {
@@ -115,14 +116,3 @@ class StatisticsFragment : Fragment() {
         }
     }
 }
-//
-//open class BaseFragment<T> : Fragment() where T : ViewBinding {
-//    private var _binding: T? = null
-//    internal val binding get() = _binding!!
-//    set(value) {_binding = value}
-//
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding = null
-//    }
-//}

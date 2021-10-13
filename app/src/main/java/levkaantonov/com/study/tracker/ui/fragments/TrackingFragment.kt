@@ -34,7 +34,7 @@ import kotlin.math.round
 const val CANCEL_TRACKING_DIALOG_TAG = "CancelDialog"
 
 @AndroidEntryPoint
-class TrackingFragment : Fragment(R.layout.fragment_tracking) {
+class TrackingFragment : Fragment() {
 
     private var _binding: FragmentTrackingBinding? = null
     private val binding get() = _binding!!
@@ -169,27 +169,17 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
     private fun endRunAndSaveToDb() {
         map?.snapshot { bmp ->
             var distanceInMeters = 0
-            pathPoints.forEach { polyline ->
-                distanceInMeters += TrackingUtility.calcPolylineLength(polyline).toInt()
+            for(polyline in pathPoints) {
+                distanceInMeters += TrackingUtility.calculatePolylineLength(polyline).toInt()
             }
-
-            val avgSpeed =
-                round((distanceInMeters / 1000f) / (currentTimeInMillis / 1000 / 60 / 60) * 10) / 10f
+            val avgSpeed = round((distanceInMeters / 1000f) / (currentTimeInMillis / 1000f / 60 / 60) * 10) / 10f
             val dateTimestamp = Calendar.getInstance().timeInMillis
             val caloriesBurned = ((distanceInMeters / 1000f) * weight).toInt()
-            val run = Run(
-                bmp,
-                dateTimestamp,
-                avgSpeed,
-                distanceInMeters,
-                currentTimeInMillis,
-                caloriesBurned
-            )
+            val run = Run(bmp, dateTimestamp, avgSpeed, distanceInMeters, currentTimeInMillis, caloriesBurned)
             viewModel.insertRun(run)
-
             Snackbar.make(
                 requireActivity().findViewById(R.id.rootView),
-                "Run saved",
+                "Run saved successfully",
                 Snackbar.LENGTH_LONG
             ).show()
             stopRun()

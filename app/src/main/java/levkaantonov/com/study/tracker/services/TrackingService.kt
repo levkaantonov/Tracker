@@ -55,10 +55,10 @@ class TrackingService : LifecycleService() {
     private val timeRunInSeconds = MutableLiveData<Long>()
 
     @Inject
-    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     @Inject
-    private lateinit var baseNotificationBuilder: NotificationCompat.Builder
+    lateinit var baseNotificationBuilder: NotificationCompat.Builder
 
     private lateinit var currentNotificationBuilder: NotificationCompat.Builder
 

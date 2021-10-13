@@ -23,7 +23,7 @@ import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 
 @AndroidEntryPoint
-class RunFragment : Fragment(R.layout.fragment_run), EasyPermissions.PermissionCallbacks {
+class RunFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     private var _binding: FragmentRunBinding? = null
     private val binding get() = _binding!!
